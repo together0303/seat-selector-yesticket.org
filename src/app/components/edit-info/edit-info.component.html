@@ -1,0 +1,86 @@
+<div class="edit-info">
+    <h2 mat-dialog-title>Edit chair information</h2>
+    <mat-dialog-content class="mat-typography">
+        <!-- <div class="edit-option" fxLayout fxLayoutAlign="space-between center">
+            <mat-radio-group aria-label="Edit or Connect" [ngModel]="isEdit" (ngModelChange)="changeEditOption($event)">
+                <mat-radio-button value="edit">Edit info</mat-radio-button>
+                <mat-radio-button value="connect">Connect</mat-radio-button>
+            </mat-radio-group>
+        </div> -->
+        <mat-grid-list cols="2">
+            <mat-grid-tile *ngIf="connected === false">
+                <div class="grid-content pl-50">
+                    <form *ngIf="isEdit === 'edit'" [formGroup]="editBlock">
+                        <h3>Add new seat</h3>
+                        <div>
+                            <mat-form-field>
+                                <mat-label>Select category * </mat-label>
+                                <mat-select formControlName="category">
+                                    <mat-option *ngFor="let cate of categories;" [value]="cate.id">{{cate.name}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <mat-form-field>
+                                <mat-label>Name * </mat-label>
+                                <input type="text" formControlName="name" matInput>
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <mat-form-field>
+                                <mat-label>Description * </mat-label>
+                                <input type="text" formControlName="description" matInput>
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <mat-radio-group aria-label="Edit or Connect" formControlName="available">
+                                <mat-radio-button value="true">Available</mat-radio-button>
+                                <mat-radio-button value="false">Not Available</mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                    </form>
+                    <form *ngIf="isEdit === 'connect'" [formGroup]="connectBlock">
+                        <h3>Connect seat</h3>
+                        <div>
+                            <mat-form-field>
+                                <mat-label>Select seat</mat-label>
+                                <mat-select formControlName="seat">
+                                    <mat-option *ngFor="let e_seat of existSeats;" [value]="e_seat">{{e_seat.name}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        
+                    </form>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <div class="grid-content">
+                    <h4>chair information</h4>
+                    <p>
+                        <b>Name: </b>
+                        {{info.name}}
+                    </p>
+                    <p>
+                        <b>Description: </b> 
+                        {{info.description}}
+                    </p>
+                    <p>
+                        <b>Category: </b> 
+                        {{info.category?.name}}
+                        <span [style.backgroundColor]="info.category?.color" style="display: inline-block; width: 15px; height: 15px;"></span>
+                    </p>
+                    <p>
+                        <b>Price: </b> 
+                        {{info.category?.description}}
+                    </p>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+        <div *ngIf="error !== ''"style="color: red;" [innerHTML] ="error" class="pl-50"></div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button *ngIf="connected === false" mat-button cdkFocusInitial (click)="create()">Connect</button>
+        <button *ngIf="connected === true" mat-button cdkFocusInitial (click)="disconnect()">Disconnect</button>
+    </mat-dialog-actions>
+</div>

@@ -1,0 +1,23 @@
+.custom-grid-title {
+    display: flex;
+    flex-direction: column;
+}
+.edit-info {
+    width: 70vw;
+    .grid-content {
+        width: 100%;
+        text-align: left;
+    }
+    .pl-50 {
+        padding-left: 50px;
+    }
+    .mat-grid-tile-content {
+        align-items: baseline !important;
+    }
+}
+.edit-option {
+    padding: 24px 0;
+    mat-radio-button {
+        margin-right: 24px;
+    }
+}

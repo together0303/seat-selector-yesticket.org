@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import './styles/main';
+
+
+.mat-focused .mat-hint, .mat-focused .mat-form-field-label {
+    color: #97ff00 !important;
+}
+.mat-focused .mat-form-field-underline, .mat-focused .mat-form-field-ripple {
+    background-color: #97ff00 !important;
+}

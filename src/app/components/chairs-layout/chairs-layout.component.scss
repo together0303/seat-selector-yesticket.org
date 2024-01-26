@@ -1,0 +1,40 @@
+.layout-chairs {
+  // min-width: 700px;
+
+  .layout-type {
+    padding: 5px 0;
+    mat-radio-button {
+      margin-right: 24px;
+    }
+  }
+  mat-form-field-wrapper {
+    padding-bottom: 0 !important;
+  }
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+  }
+
+  span {
+    display: block;
+    font-size: 12px;
+    color: #555;
+  }
+
+  .layout-option {
+    margin-bottom: 0;
+  }
+
+  canvas {
+    border: 1px solid #ececec;
+    border-radius: 3px;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+  .yesticket-btn {
+    width: auto !important;
+  }
+}
